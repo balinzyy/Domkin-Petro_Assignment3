@@ -4,9 +4,6 @@ book_profile = {"title": "Основи програмування",
                                    "city": "Київ",}
                 }
 
-name = book_profile["title"]
-author = book_profile["author"]
-location = book_profile["publisher_info"]["city"]
+year = book_profile.get("year")
 
-
-print(f'Книга "{name}" автора {author} була видана у місті {location}')
+print(year if year else '"Рік видання невідомий"')
