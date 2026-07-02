@@ -4,7 +4,9 @@ book_profile = {"title": "Основи програмування",
                                    "city": "Київ",}
                 }
 
-publisher = book_profile["publisher_info"]["name"]
+name = book_profile["title"]
+author = book_profile["author"]
+location = book_profile["publisher_info"]["city"]
 
 
-print(f"Publisher is : {publisher}")
+print(f'Книга "{name}" автора {author} була видана у місті {location}')
