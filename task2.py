@@ -7,7 +7,7 @@ deposit_account = [{"client_id": "C1025",
 
 
 for i in deposit_account:
-    i["balance"]+=i["balance"]*i["interest_rate"]
+    i["last_update_type"] = "interest accrual"
 
 print(deposit_account)
 
