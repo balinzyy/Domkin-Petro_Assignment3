@@ -7,7 +7,7 @@ deposit_account = [{"client_id": "C1025",
 
 
 for i in deposit_account:
-    i["last_update_type"] = "interest accrual"
+    i["is_active"] = False
 
 print(deposit_account)
 
