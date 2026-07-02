@@ -5,10 +5,9 @@ deposit_account = [{"client_id": "C1025",
                    "is_active": True
                    }]
 
-summ = 0
 
 for i in deposit_account:
-    summ += i["balance"]*i["interest_rate"]
+    i["balance"]+=i["balance"]*i["interest_rate"]
 
-print(summ)
+print(deposit_account)
 
