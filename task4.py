@@ -23,6 +23,23 @@ def get_department_stats(employee_list, target_dept):
 
     return result
 
+def financialhealth(employees):
+    deptsexpenses = [{"name": i, "salary_spendings": sum(k["salary"] for k in employees if k["department"] == i)} for i in {j["department"] for j in employees}]
+    deptsrevenues = [{"name": i, "revenue": 100000} for i in {j["department"] for j in employees}]
+
+    deptbalances = [{"name": i, "balance": 0} for i in {j["department"] for j in employees}]
+    for i in range(len(deptsexpenses)):
+        dif = deptsrevenues[i]["revenue"] - deptsexpenses[i]["salary_spendings"]
+        deptbalances[i]["balance"] = dif
+
+
+    return deptbalances
+
+
+
+
+
+
 
 
 employees = [{"name": "Олена","department": "Marketing","salary":25000},
@@ -33,6 +50,22 @@ employees = [{"name": "Олена","department": "Marketing","salary":25000},
              {"name": "Марія","department": "IT","salary": 52000}]
 
 
-print(get_department_stats(employees,"IT"))
-print(get_department_stats(employees,"Marketing"))
+
+
+def mainprogram():
+    deptname = str(input("Which department financial health state are you looking for? : "))
+
+    d = financialhealth(employees)
+
+
+    for i in d:
+        if i["name"] == deptname and i["balance"] < 0:
+            print(f"{deptname} department has a negative profit of {i['balance']}$. ")
+        elif i["name"] == deptname:
+            print(f"{deptname} department's financial health is good. Annual profit is {i['balance']}$.")
+
+
+mainprogram()
+
+
 
